@@ -1,0 +1,7 @@
+/home/jfoucs/MYGraduationProject/LineAna/LineAna/build/CMakeFiles/rebuild_cache.dir
+/home/jfoucs/MYGraduationProject/LineAna/LineAna/build/CMakeFiles/install.dir
+/home/jfoucs/MYGraduationProject/LineAna/LineAna/build/CMakeFiles/list_install_components.dir
+/home/jfoucs/MYGraduationProject/LineAna/LineAna/build/CMakeFiles/lineana.dir
+/home/jfoucs/MYGraduationProject/LineAna/LineAna/build/CMakeFiles/install/strip.dir
+/home/jfoucs/MYGraduationProject/LineAna/LineAna/build/CMakeFiles/install/local.dir
+/home/jfoucs/MYGraduationProject/LineAna/LineAna/build/CMakeFiles/edit_cache.dir
