@@ -15,7 +15,12 @@ using namespace std;
 int main(int argc, char **argv) {
     
     ofstream VanishingPointRecord ("VanishingPointRecord.txt");
-    
+    Point VanishingPoint(646,390);
+    vector<Point> LinePoint;
+    Mat LineImg = 255 * Mat::ones(720,1280,CV_8UC1);
+    Mat LineImgShow;
+    cvtColor(LineImg, LineImgShow, CV_GRAY2BGR);
+    vector<double> angle;
     
     string dataset_dir  = "/home/jfoucs/MYGraduationProject/Data";
     ifstream fin ( dataset_dir+"/associate.txt" );
@@ -44,12 +49,19 @@ int main(int argc, char **argv) {
 	vector<Point> CrossPoint;
 	Canny(srcImage, midImage, 50, 200, 3);
 	cvtColor(midImage,dstImage, CV_GRAY2BGR);
-	
-	
+	//cout << midImage<< endl;
+	//cout << midImage.cols << endl;
+	//cout << midImage.type()<< endl;
+
 	vector<Vec2f> lines;
 	HoughLines(midImage, lines, 1, CV_PI/180, 360, 0, 0 );  
+	//cout << dstImage << endl;
+	//cout << "size of originalpicture:" <<srcImage.size <<endl;
+	//cout << "size of cannypicture :" << midImage.size << endl;
+	//cout << "size of dstImage:" << dstImage.size << endl;
       
 	cout << "line number  " <<std::to_string(i)<< "  is  " << lines.size() << endl;
+	
 	for( size_t i = 0; i < lines.size(); i++ )  
 	{  
 	    
@@ -111,8 +123,39 @@ int main(int argc, char **argv) {
 	{
 	  VanishingPointRecord << "\n\n\n\n\n\n";
 	}
+	
+	
+	for (int i = 640; i <midImage.cols; i++)
+	{
+	  if (midImage.ptr<uchar>(0)[i] > 0)
+	  {
+	    LinePoint.push_back(Point_<int>(i,0));
+	    break;
+	  }
+	}
     }
+    cout << LinePoint << endl;
     VanishingPointRecord.close();
-    
+    for (int i = 0; i<LinePoint.size(); i++)
+    {
+      Point pts;
+      pts.x = cvRound((VanishingPoint.x + LinePoint[i].x)/2);
+      pts.y = cvRound((VanishingPoint.y + LinePoint[i].y)/2);
+      string linename = to_string(i);
+      line( LineImgShow, VanishingPoint, LinePoint[i], Scalar(100,100,195), 1, CV_AA);
+      putText(LineImgShow, linename, pts, cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0 ), 1);
+      Point ptsvector;
+      ptsvector.x = LinePoint[i].x - VanishingPoint.x;
+      ptsvector.y = LinePoint[i].y - VanishingPoint.y;
+      double angle_tmp = 180/CV_PI*atan2(ptsvector.y, ptsvector.x);
+      angle.push_back(angle_tmp);
+    }
+    imwrite("RotationPic.png", LineImgShow);
+    cout << "angle of the plumb line is  ";
+    for (int i = 0; i< angle.size(); i++)
+    {
+     cout << -angle.at(i) << "   ";
+    }
+    cout << endl;
     return 0;
 }
