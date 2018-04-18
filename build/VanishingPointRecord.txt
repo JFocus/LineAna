@@ -1,69 +1,120 @@
-number0  646  397
-number1  710  357
-number2  -2147483648  -2147483648
-number3  659  389
-number4  638  402
-number5  802  299
-number6  617  415
-number7  452  518
-number8  544  461
-number9  734  342
-number10  647  397
-number11  656  393
-number12  660  392
-number13  626  404
-number14  659  392
-number15  659  392
-number16  652  395
-number17  666  390
-number18  669  389
-number19  614  409
-number20  639  400
-number21  639  405
-number22  671  383
-number23  655  394
-number24  620  418
-number25  665  388
-number26  626  414
-number27  629  412
-number28  724  348
-number29  657  392
-number30  681  379
-number31  660  392
-number32  658  393
-number33  692  372
-number34  599  430
-number35  619  418
-number36  784  314
-number37  661  391
+number0  640  383
+number1  609  399
+number2  558  425
+number3  -2147483648  -2147483648
+number4  613  397
+number5  632  387
+number6  634  386
+number7  607  400
+number8  653  377
+number9  629  389
+number10  610  399
+number11  653  378
+number12  675  371
+number13  617  392
+number14  662  375
+number15  687  366
+number16  633  386
+number17  849  307
+number18  677  370
+number19  619  391
+number20  719  354
+number21  -2147483648  -2147483648
+number22  531  435
+number23  620  394
+number24  645  382
+number25  635  387
+number26  606  401
+number27  664  374
+number28  633  388
+number29  611  398
+number30  480  461
+number31  725  347
+number32  672  372
+number33  637  388
+number34  633  390
+number35  676  370
+number36  642  386
+number37  646  384
+number38  560  420
+number39  606  397
+number40  631  385
+number41  580  410
+number42  638  381
+number43  618  391
+number44  578  411
+number45  653  379
+number46  635  387
+number47  601  402
+number48  669  372
+number49  634  388
+number50  606  400
+number51  634  387
+number52  -2147483648  -2147483648
+number53  679  369
+number54  627  389
+number55  750  342
+number56  637  389
+number57  629  384
+number58  635  387
+number59  636  388
+number60  713  360
+number61  646  385
+number62  591  406
+number63  558  404
+number64  692  366
+number65  640  386
+
+
+
+
+
+
+number0  623  400
+number1  618  402
+number2  638  392
+number3  633  395
+number4  631  396
+number5  632  395
+number6  244  593
+number7  -2147483648  -2147483648
+number8  634  394
+number9  593  412
+number10  659  385
+number11  634  395
+number12  632  396
+number13  633  396
+number14  557  426
+number15  655  387
+number16  635  395
+number17  681  378
+number18  635  396
+number19  633  397
+number20  634  396
+number21  562  424
+number22  645  392
+number23  636  395
+number24  632  394
+number25  630  395
+number26  631  394
+number27  596  406
+number28  657  386
+number29  634  393
+number30  729  455
+number31  643  400
+number32  626  390
+number33  636  396
+number34  584  364
+number35  620  389
+number36  624  391
+number37  634  397
 number38  -2147483648  -2147483648
-number39  678  380
-number40  676  381
-number41  695  372
-number42  708  366
-number43  598  417
-number44  623  405
-number45  660  392
-number46  647  398
-number47  671  387
-number48  678  383
-number49  561  438
-number50  664  390
-number51  680  379
-number52  629  412
-number53  632  410
-number54  751  332
-number55  661  391
-number56  786  318
-number57  -2147483648  -2147483648
-number58  974  209
-number59  654  394
-number60  638  406
-number61  879  262
-number62  668  388
-number63  1124  126
-number64  672  387
-number65  611  410
+number39  624  391
+number40  635  397
+number41  658  408
+number42  92  674
+number43  627  389
+number44  637  396
 
 
 
@@ -71,175 +122,163 @@ number65  611  410
 
 
 number0  -2147483648  -2147483648
-number1  644  393
-number2  644  393
-number3  603  414
-number4  674  377
-number5  755  334
-number6  613  409
-number7  779  321
-number8  618  406
-number9  461  490
-number10  673  374
-number11  592  417
-number12  450  492
-number13  597  414
-number14  602  412
-number15  764  326
-number16  727  345
-number17  693  363
-number18  612  406
-number19  644  393
-number20  637  397
-number21  652  387
-number22  661  381
-number23  651  388
-number24  692  361
-number25  660  382
-number26  687  365
-number27  665  383
-number28  582  422
-number29  587  419
-number30  636  396
-number31  -2147483648  -2147483648
-number32  633  398
-number33  597  414
-number34  746  341
-number35  -2147483648  -2147483648
-number36  608  412
-number37  869  279
-number38  613  409
-number39  532  451
-number40  592  417
-number41  653  387
-number42  994  221
-number43  646  390
-number44  602  412
-number45  683  370
-number46  791  315
-number47  663  380
-number48  607  409
-number49  736  341
-number50  623  403
-number51  -2147483648  -2147483648
-number52  713  352
-number53  697  359
-number54  772  317
+number1  601  408
+number2  633  392
+number3  678  370
+number4  631  393
+number5  707  356
+number6  659  379
+number7  579  419
+number8  633  392
+number9  624  397
+number10  523  443
+number11  601  405
+number12  600  405
+number13  628  391
+number14  667  372
+number15  632  389
+number16  539  435
+number17  630  390
+number18  604  403
+number19  655  384
+number20  -2147483648  -2147483648
+number21  632  394
+number22  817  312
+number23  690  368
+number24  555  428
+number25  635  393
+number26  632  394
+number27  602  404
+number28  631  393
+number29  324  511
+number30  796  330
+number31  859  305
+number32  633  392
+number33  608  402
+number34  629  392
+number35  737  344
+number36  649  383
+number37  476  460
+number38  631  391
+number39  605  403
+number40  625  389
+number41  628  391
+number42  635  396
+number43  608  379
+number44  632  394
+number45  559  416
+number46  -2147483648  -2147483648
+number47  626  389
+number48  536  425
+number49  828  318
+number50  630  390
+number51  513  433
+number52  638  395
+number53  672  381
+number54  635  393
 
 
 
 
 
 
-number0  623  394
-number1  610  401
-number2  572  420
-number3  635  387
-number4  636  389
-number5  655  382
-number6  527  429
-number7  726  349
-number8  671  373
-number9  685  368
+number0  639  386
+number1  630  390
+number2  612  397
+number3  634  388
+number4  621  394
+number5  662  376
+number6  629  389
+number7  -2147483648  -2147483648
+number8  624  391
+number9  606  396
+number10  615  393
+number11  632  391
+number12  629  389
+number13  633  392
+number14  628  389
+number15  679  377
+number16  628  393
+number17  561  413
+number18  596  398
+number19  619  392
+number20  609  396
 
 
 
 
 
 
-number0  655  389
-number1  594  420
-number2  665  384
-number3  646  394
-number4  747  342
-number5  666  383
-number6  650  392
-number7  645  394
-number8  649  392
-number9  583  426
-number10  553  441
-number11  660  388
-number12  653  390
-number13  663  387
-number14  646  391
-number15  647  391
-number16  648  391
-number17  650  390
-number18  647  391
-number19  644  392
-number20  647  391
-number21  738  350
-number22  657  389
-number23  -2147483648  -2147483648
-number24  685  376
-number25  651  392
-number26  641  397
-number27  651  392
-number28  587  424
-number29  573  430
-number30  636  398
-number31  582  422
-number32  667  383
-number33  649  391
-number34  648  392
-number35  648  392
-number36  624  403
-number37  627  402
-number38  625  402
-number39  540  434
-number40  651  392
-number41  646  394
-number42  650  392
-number43  629  400
-number44  632  399
-number45  645  392
-number46  648  391
-number47  654  388
-number48  647  391
-number49  637  396
-number50  649  390
-number51  648  391
-number52  652  389
-number53  647  391
-number54  641  393
-number55  646  391
-number56  649  391
-number57  653  393
-number58  647  390
-number59  648  391
-number60  648  392
-number61  659  383
-number62  655  387
-number63  646  391
-number64  647  391
-number65  613  409
+number0  629  385
+number1  633  384
+number2  701  363
+number3  630  385
+number4  -2147483648  -2147483648
+number5  635  388
+number6  587  358
+number7  638  387
+number8  734  447
+number9  636  388
 
 
 
 
 
 
-number0  639  387
-number1  631  391
-number2  653  381
-number3  640  387
-number4  640  387
-number5  707  358
-number6  600  407
-number7  681  366
-number8  640  387
-number9  640  387
-number10  652  380
-number11  761  321
-number12  653  379
-number13  650  380
-number14  643  384
-number15  601  410
-number16  614  403
-number17  661  377
-number18  640  387
-number19  647  383
-number20  646  383
+number0  625  394
+number1  629  393
+number2  630  393
+number3  834  326
+number4  998  273
+number5  630  393
+number6  631  393
+number7  647  391
+number8  664  388
+number9  622  388
+number10  633  396
+number11  636  398
+number12  634  395
+number13  638  397
+number14  -2147483648  -2147483648
+
+
+
+
+
+
+number0  632  382
+number1  -2147483648  -2147483648
+number2  642  378
+number3  635  384
+number4  630  380
+number5  658  376
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+number0  688  393
+number1  615  412
+number2  987  346
+
+
+
+
+
+
 
 
 

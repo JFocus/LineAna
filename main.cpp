@@ -15,13 +15,23 @@ using namespace std;
 int main(int argc, char **argv) {
     
     ofstream VanishingPointRecord ("VanishingPointRecord.txt");
-    Point VanishingPoint(646,390);
+    ofstream angleRecord("angleRecord.txt");
+    Point VanishingPoint(628,389);
     vector<Point> LinePoint;
+    vector<Point> LinePoint2;
+    vector <Point> LinePoint3;
     Mat LineImg = 255 * Mat::ones(720,1280,CV_8UC1);
     Mat LineImgShow;
     cvtColor(LineImg, LineImgShow, CV_GRAY2BGR);
     vector<double> angle;
+    vector<double> angle2;
+    vector <double> angle3;
+    int table[256];
     
+    for(int i=0; i<256; i++)
+    {
+      table[i] = i;
+    }
     string dataset_dir  = "/home/jfoucs/MYGraduationProject/Data";
     ifstream fin ( dataset_dir+"/associate.txt" );
     if ( !fin )
@@ -49,12 +59,14 @@ int main(int argc, char **argv) {
 	vector<Point> CrossPoint;
 	Canny(srcImage, midImage, 50, 200, 3);
 	cvtColor(midImage,dstImage, CV_GRAY2BGR);
+	//cout <<"depth of midImage is" <<(midImage.depth() == CV_8U) <<endl;
 	//cout << midImage<< endl;
 	//cout << midImage.cols << endl;
 	//cout << midImage.type()<< endl;
-
+        //cout << "channels of midImage is" << midImage.channels()<< endl;
+	
 	vector<Vec2f> lines;
-	HoughLines(midImage, lines, 1, CV_PI/180, 360, 0, 0 );  
+	HoughLines(midImage, lines, 1, CV_PI/180, 320, 0, 0 );  
 	//cout << dstImage << endl;
 	//cout << "size of originalpicture:" <<srcImage.size <<endl;
 	//cout << "size of cannypicture :" << midImage.size << endl;
@@ -127,14 +139,40 @@ int main(int argc, char **argv) {
 	
 	for (int i = 640; i <midImage.cols; i++)
 	{
-	  if (midImage.ptr<uchar>(0)[i] > 0)
+	  uchar *p;
+	  p = midImage.ptr<uchar>(0);
+	  if (table[p[i]] > 0)
 	  {
 	    LinePoint.push_back(Point_<int>(i,0));
 	    break;
 	  }
 	}
+        for(int j = midImage.rows-1; j >=0; j-- )
+	{
+	  uchar *p;
+	  p = midImage.ptr<uchar>(j);
+	  if(table[p[0]] >0)
+	  {
+	    LinePoint2.push_back(Point_<int>(0,j));
+	    break;
+	  }
+	}
+	for(int k = midImage.rows-1; k>=0; k--)
+	{
+	  uchar *p;
+	  p = midImage.ptr<uchar>(k);
+	  //cout << table[p[(midImage.cols-1)]]<<endl;
+	  if(table[p[(midImage.cols-1)]] > 0)
+	  {
+	    
+	    LinePoint3.push_back(Point_<int>(1280,k));
+	    break;
+	  }
+	}
     }
     cout << LinePoint << endl;
+    cout << LinePoint2 << endl;
+    cout << LinePoint3 <<endl;
     VanishingPointRecord.close();
     for (int i = 0; i<LinePoint.size(); i++)
     {
@@ -142,7 +180,7 @@ int main(int argc, char **argv) {
       pts.x = cvRound((VanishingPoint.x + LinePoint[i].x)/2);
       pts.y = cvRound((VanishingPoint.y + LinePoint[i].y)/2);
       string linename = to_string(i);
-      line( LineImgShow, VanishingPoint, LinePoint[i], Scalar(100,100,195), 1, CV_AA);
+      line( LineImgShow, VanishingPoint, LinePoint[i], Scalar(255,0,195), 1, CV_AA);
       putText(LineImgShow, linename, pts, cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0 ), 1);
       Point ptsvector;
       ptsvector.x = LinePoint[i].x - VanishingPoint.x;
@@ -150,12 +188,88 @@ int main(int argc, char **argv) {
       double angle_tmp = 180/CV_PI*atan2(ptsvector.y, ptsvector.x);
       angle.push_back(angle_tmp);
     }
+    
+    for (int i = 0; i<LinePoint2.size(); i++)
+    {
+      Point pts;
+      pts.x = cvRound((VanishingPoint.x + LinePoint2[i].x)/2);
+      pts.y = cvRound((VanishingPoint.y + LinePoint2[i].y)/2);
+      string linename = to_string(i);
+      line( LineImgShow, VanishingPoint, LinePoint2[i], Scalar(100,100,195), 1, CV_AA);
+      putText(LineImgShow, linename, pts, cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0 ), 1);
+      Point ptsvector;
+      ptsvector.x = LinePoint2[i].x - VanishingPoint.x;
+      ptsvector.y = LinePoint2[i].y - VanishingPoint.y;
+      double angle_tmp = 180/CV_PI*atan2(ptsvector.y, ptsvector.x);
+      angle2.push_back(angle_tmp);
+    }
+    
+    for (int i = 0; i<LinePoint3.size(); i++)
+    {
+      Point pts;
+      pts.x = cvRound((VanishingPoint.x + LinePoint3[i].x)/2);
+      pts.y = cvRound((VanishingPoint.y + LinePoint3[i].y)/2);
+      string linename = to_string(i);
+      line( LineImgShow, VanishingPoint, LinePoint3[i], Scalar(0,255,195), 1, CV_AA);
+      putText(LineImgShow, linename, pts, cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0 ), 1);
+      Point ptsvector;
+      ptsvector.x = LinePoint3[i].x - VanishingPoint.x;
+      ptsvector.y = LinePoint3[i].y - VanishingPoint.y;
+      double angle_tmp = 180/CV_PI*atan2(ptsvector.y, ptsvector.x);
+      angle3.push_back(angle_tmp);
+    }
     imwrite("RotationPic.png", LineImgShow);
     cout << "angle of the plumb line is  ";
     for (int i = 0; i< angle.size(); i++)
     {
+     double anglechange;
+     if(i != (angle.size()-1))
+     anglechange = angle.at(i) - angle.at(i+1); 
      cout << -angle.at(i) << "   ";
+     if(angleRecord.is_open())
+     {
+        angleRecord << -angle.at(i) << "  " << anglechange << "\n";  
+     }
     }
     cout << endl;
+    if(angleRecord.is_open())
+    {
+      angleRecord << "\n\n\n\n\n\n";
+    }
+    
+    
+    cout << "angle of the plumb line 2 is  ";
+    for (int i = 0; i< angle2.size(); i++)
+    {
+     double anglechange;
+     if(i != (angle2.size()-1))
+     anglechange = angle2.at(i) - angle2.at(i+1); 
+     cout << -angle2.at(i) << "   ";
+     if(angleRecord.is_open())
+     {
+        angleRecord << -angle2.at(i) << "  " << anglechange << "\n";  
+     }
+    }
+    cout << endl;
+    if(angleRecord.is_open())
+    {
+      angleRecord << "\n\n\n\n\n\n";
+    }
+    
+    
+    cout << "angle of the plumb line 3 is  ";
+    for (int i = 0; i< angle3.size(); i++)
+    {
+     double anglechange;
+     if(i != (angle3.size()-1))
+     anglechange = angle3.at(i) - angle3.at(i+1); 
+     cout << -angle3.at(i) << "   ";
+     if(angleRecord.is_open())
+     {
+        angleRecord << -angle3.at(i) << "  " << anglechange << "\n";  
+     }
+    }
+    cout << endl;
+    angleRecord.close();
     return 0;
 }
