@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
     
     ofstream VanishingPointRecord ("VanishingPointRecord.txt");
     ofstream angleRecord("angleRecord.txt");
-    Point VanishingPoint(628,389);
+    Point VanishingPoint(642,393);
     vector<Point> LinePoint;
     vector<Point> LinePoint2;
     vector <Point> LinePoint3;
@@ -66,17 +66,27 @@ int main(int argc, char **argv) {
         //cout << "channels of midImage is" << midImage.channels()<< endl;
 	
 	vector<Vec2f> lines;
-	HoughLines(midImage, lines, 1, CV_PI/180, 320, 0, 0 );  
+	vector<Vec2f>::iterator iter;
+	HoughLines(midImage, lines, 1, CV_PI/180, 300, 0, 0 );  
 	//cout << dstImage << endl;
 	//cout << "size of originalpicture:" <<srcImage.size <<endl;
 	//cout << "size of cannypicture :" << midImage.size << endl;
 	//cout << "size of dstImage:" << dstImage.size << endl;
       
 	cout << "line number  " <<std::to_string(i)<< "  is  " << lines.size() << endl;
+
+	for (int i = 0; i< lines.size();i++)
+	{
+	  if (lines[i][1] < 0.1)
+	  {
+	    lines.erase(lines.begin()+i);
+	    i--;
+	  }
+	}
 	
 	for( size_t i = 0; i < lines.size(); i++ )  
 	{  
-	    
+	   // cout << lines[i][1]<<endl;
 	    float rho = lines[i][0], theta = lines[i][1];  
 	    Point pt1, pt2;  
 	    double a = cos(theta), b = sin(theta);  
@@ -147,7 +157,7 @@ int main(int argc, char **argv) {
 	    break;
 	  }
 	}
-        for(int j = midImage.rows-1; j >=0; j-- )
+        for(int j =0; j < midImage.rows; j++ )
 	{
 	  uchar *p;
 	  p = midImage.ptr<uchar>(j);
@@ -162,10 +172,10 @@ int main(int argc, char **argv) {
 	  uchar *p;
 	  p = midImage.ptr<uchar>(k);
 	  //cout << table[p[(midImage.cols-1)]]<<endl;
-	  if(table[p[(midImage.cols-1)]] > 0)
+	  if(table[p[0]] > 0)
 	  {
 	    
-	    LinePoint3.push_back(Point_<int>(1280,k));
+	    LinePoint3.push_back(Point_<int>(0,k));
 	    break;
 	  }
 	}
